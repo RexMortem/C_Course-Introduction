@@ -15,6 +15,4 @@ main(){
     printf("%d\n", sizeof(int16_t));
     printf("%d\n", sizeof(int32_t));
     printf("%d\n", sizeof(int64_t));
-
-    long a = 5;
 }
