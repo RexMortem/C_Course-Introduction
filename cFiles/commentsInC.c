@@ -11,10 +11,10 @@ main(){
     int i = 5; 
     i++;
 
-    printf("%d", i); // output: 6 
+    printf("%d\n", i); // output: 6 
 
     i++;
     i++;
 
-    printf("%d", i); // output: 8 
+    printf("%d\n", i); // output: 8 
 }
