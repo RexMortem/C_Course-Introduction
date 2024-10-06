@@ -48,9 +48,9 @@ If not then you should check by running the following command:
 ```
 gcc --version
 ```
-<small> *gcc stands for GNU Compiler Collection* </small>
+*gcc stands for GNU Compiler Collection* 
 
-*test*
+<h1> test </h1>
 
 If you do not have it installed, then follow the installation instructions from [here](https://gcc.gnu.org/install/).
 
