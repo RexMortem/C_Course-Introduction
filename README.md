@@ -9,3 +9,5 @@ This session covers the very basics of C i.e. concepts that are present in every
 The C Course is a 4-week long course on the basics of C Programming made by UWCS (University of Warwick Computing Society).
 
 You can find out more about the society at [their website](https://uwcs.co.uk). 
+
+## How to use this repository
