@@ -64,6 +64,21 @@ The idea is that C code is relatively portable so you can write some C code, giv
 
 ### Compiling and Executing C Code
 
+Use `gcc` to compile C code. As an example:
+
+1) create a new file directly under the main folder (named C_Course-Introduction) 
+2) Call it `exampleToCompile.c`
+3) Run the command `gcc exampleToCompile.c -o exampleProgram`
+
+This should give you an exe named `exampleProgram.exe` that you can run using:
+```
+./exampleProgram
+```
+
+Note that the `-o` flag lets you name the exe and, by extension, place it in a specific folder. If you wrote `exes/exampleProgram` instead of `exampleProgram`, then it would place the newly created program in the `exes` folder (assuming this folder exists). This will make it easier to keep track of your files! 
+
+Using the above, see if you can figure out how to compile one of the c files inside of `cFiles`. 
+
 ## Exercise for Hello World 
 
 1) Try changing up the text outputted to the console. Note that C does not automatically insert newlines after each usage of printf! 
