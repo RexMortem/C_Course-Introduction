@@ -48,7 +48,9 @@ If not then you should check by running the following command:
 ```
 gcc --version
 ```
-*gcc stands for GNU Compiler Collection*
+<small> *gcc stands for GNU Compiler Collection* </small>
+
+*test*
 
 If you do not have it installed, then follow the installation instructions from [here](https://gcc.gnu.org/install/).
 
@@ -58,7 +60,7 @@ A compiler turns high-level code (such as C) into low-level machine code that th
 
 The idea is that C code is relatively portable so you can write some C code, give that code to multiple different machines and they'll be able to run it using their respective compilers.  
 
-![A diagram describing](images/CompilationDiagram.png)
+![A diagram describing compilation](images/CompilationDiagram.png)
 - Compiling C code turns it into an exe 
 - You can run the exe with `./TheExe`
 
