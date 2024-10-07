@@ -1,46 +1,29 @@
 # Session 1 - An Introduction To C 
 
-## About the session  
-
 The course starts gently by introducing basic programming concepts in C such as variables, types, functions, and loops. If you’re an experienced programmer then feel free to skim through these sections to get to the more C-specific parts! 
 
 ## Contents 
 
-- <a href="#WhatIsC"> What is C </a>
-- Hello World!
-- Variables & Types 
-- Format Specifiers (%d, %s, %c)
+- <a href="#WhatIsC" style="color: black;"> What is C </a>
+- <a href="#HelloWorld" style="color: black;"> Hello World! </a>
+- <a href="#Compiling" style="color: black;"> Compiling & Running C Code </a>
+- <a href="#Variables" style="color: black;"> Variables & Types </a> 
+- <a href="#FormatSpecifiers" style="color: black;"> Format Specifiers (**%d**, **%s**, **%c**) </a>
+- <a href="#IntegerTypes" style="color: black;"> Integer types (char, short, int, long, long long) </a>
+- Comments 
+- <a href="#WhatIsC" style="color: black;"> underflow/overflow </a>
+- use of stdint library 
+- unsigned integers 
+- floating-point types 
+- Functions 
+- Basic Loops
+- Arrays (& undefined behaviour)
 
-Integer types (char, short, int, long, long long)
-
-underflow/overflow 
-
-use of stdint library 
-
-unsigned integers 
-
-floating-point types 
-
-This should be SHORT as can be introduced similarly to integers 
-
-Comments 
-
-Positioned as a break in the Integer section
-
-Functions 
-
-Revisiting the main function 
-
-Basic Loops
-
-Arrays and exploring undefined behaviour 
-
-Suggested reading (K&R, relevant blogs etc)
 ## <a name="WhatIsC"> What is C </a>
 
 C is a general purpose programming language that originated as the language for UNIX ….
 
-## Hello, World! 
+## <a name="HelloWorld"> Hello, World! </a>
 
 Let's start with the first program almost *everyone* writes. 
 
@@ -74,7 +57,7 @@ If you don’t know what functions are yet, then just think of them as blocks of
 
 Okay so we've seen our first C program but how do we actually run it? 
 
-## Running C Code 
+## <a name="Compiling"> Running C Code </a> 
 
 If you're working on DCS machines, then you should have the GNU C compiler installed. 
 
@@ -96,7 +79,7 @@ The idea is that **C** code is relatively portable so you can write some **C** c
 - Compiling C code turns it into an exe 
 - You can run the exe with `./TheExe`
 
-### Compiling and Executing C Code
+### <a name="CompilingAndExecuting"> Compiling and Executing C Code </a>
 
 Use `gcc` to compile C code. As an example:
 
@@ -111,11 +94,11 @@ This should give you an exe named `exampleProgram.exe` that you can run using:
 
 Note that the `-o` flag lets you name the exe and, by extension, place it in a specific folder. If you wrote `exes/exampleProgram` instead of `exampleProgram`, then it would place the newly created program in the `exes` folder (assuming this folder exists). This will make it easier to keep track of your files! 
 
-Using the above, see if you can figure out how to compile one of the c files inside of `cFiles`. 
+## Exercise for Hello World & Compiling
 
-## Exercise for Hello World 
+1) Compile one of the c files inside of `cFiles` (**hint:** use the <a href="#CompilingAndExecuting" style="color: black;"> <u>last paragraph of Compiling and Executing</u> </a> to help you)
 
-1) Try changing up the text outputted to the console. Note that **C** does not automatically insert *newlines* after each usage of `printf`! 
+2) Try changing up the text outputted to the console. Note that **C** does not automatically insert *newlines* after each usage of `printf`! 
 
 ```c
 #include <stdio.h>
@@ -144,42 +127,66 @@ main(){
 }
 ```
 
-Have fun coding! 
+Have fun writing your own output! 
 
-## Variables  
+## <a name="Variables"> Variables </a>  
 
 So we can interact with the console using `printf` but we need a way of handling data; at the very least, we need a way of storing input when we start reading input from the user. 
 
-Enter variables! 
+**Enter variables!** 
 
-Variables have a name and a type (for what kind of data is stored). They also hold a value regardless of if you provide one! 
+Variables have:
+- a **name**
+- a **type** ( which tell you what kind of data is stored)
+- a **value**, regardless of if you provide one! 
 
-Declaring with value
+### Declaring with value
 
-(image: Declaring a variable with a value )Declaring without value 
+![Declaring a variable with a value](images/DeclaringWithValue.png)
 
-(image: Declaring a variable without specified value )This is the difference between declaration and initialisation. 
+### Declaring without value 
 
-Both of these declare the variable (they tell C that memory must be reserved for the variable), but only the first initialises the variable with a value. 
+![Declaring a variable without specified value](images/DeclaringWithoutValue.png) 
 
-We will see soon that the variable that isn’t initialised does have a value, but it might not be what you expect! 
+This is the difference between **declaration** and **initialisation**. 
 
-Integer variables 
+Both of these **declare** the variable (they tell **C** that memory must be reserved for the variable), but only the first **initialises** the variable with a value. 
 
-First, we’ll explore the integer (positive/negative whole number) types! 
+We will see soon that the variable that isn’t initialised *does* have a value, but it might not be what you expect! 
 
-(image: Using integers)1) Note the different ways we’ve initialised the variables a,b,c- all valid! 
+### Integer variables 
 
-2) Notice that we’re using printf differently. The previous use of printf was just passing it a piece of text; this current use of printf passes it a formatting piece of text, and the values to slot into the format. 
+First, we’ll explore the integer (positive & negative whole number) types! 
 
-As it’s useful to output values in meaningful ways for debugging complex programs and even outputs for simple command-line programs, we’ll take a closer look at using printf. 
+```c
+#include <stdio.h>
 
-Format Specifiers (using printf)
+main(){
+    int a = 5;
+    int b, c;
 
-The formatting piece of text includes format specifiers which begin with % and are replaced by the other values you pass printf; different values (or different displays of values) require different format specifiers. 
+    b = 1; 
+    c = -4;
 
-For example, %d is used to stand in for a regular old base 10 integer (d for decimal). The pieces of text that we’ve been passing are called strings and so use %s. 
+    printf("%d", a + b + c);
+}
+```
 
+1) Note the different ways we’ve initialised the variables a,b,c- all valid! 
+
+2) Notice that we’re using `printf` differently. The previous use of `printf` was just passing it a piece of text; this current use of `printf` passes it a formatting piece of text, and the values to slot into the format. 
+
+As it’s useful to output values in meaningful ways for debugging complex programs and even outputs for simple command-line programs, we’ll take a closer look at using `printf`. 
+
+### Format Specifiers (using printf)
+
+The formatting piece of text includes **format specifiers** which begin with **%** and are replaced by the other values you pass `printf`; different values (or different ways of displaying values) require different format specifiers. 
+
+For example, **%d** is used to stand in for a regular old base 10 integer (**d** for **d**ecimal). The pieces of text that we’ve been passing are called **strings** and so use **%s**. 
+
+```c
+
+```
 (image: Example for time using %s, %d )(image)What did I mean by “different displays of values”? There’s a smaller int data type called a char, with a tiny range of possible values (-128 to +127), and it’s typically used to represent characters using ASCII rather than integers. 
 
 For those who don’t know, ASCII is a standard encoding of integers to commonly used characters. To name a few: 65 is ‘A’, 66 is ‘B’, 67 is ‘C’; 97 is ‘a’, 98 is ‘b’, 99 is ‘c’; 33 is ‘!’, 35 is ‘#’. Of course the digits too; they’re encoded by the numbers 48-57. 
