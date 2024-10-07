@@ -4,7 +4,39 @@
 
 The course starts gently by introducing basic programming concepts in C such as variables, types, functions, and loops. If you’re an experienced programmer then feel free to skim through these sections to get to the more C-specific parts! 
 
-## What is C
+## Contents 
+
+- <a href="#WhatIsC"> What is C </a>
+- Hello World!
+- Variables & Types 
+- Format Specifiers (%d, %s, %c)
+
+Integer types (char, short, int, long, long long)
+
+underflow/overflow 
+
+use of stdint library 
+
+unsigned integers 
+
+floating-point types 
+
+This should be SHORT as can be introduced similarly to integers 
+
+Comments 
+
+Positioned as a break in the Integer section
+
+Functions 
+
+Revisiting the main function 
+
+Basic Loops
+
+Arrays and exploring undefined behaviour 
+
+Suggested reading (K&R, relevant blogs etc)
+## <a name="WhatIsC"> What is C </a>
 
 C is a general purpose programming language that originated as the language for UNIX ….
 
@@ -22,9 +54,9 @@ main(){
 
 There are a few things to note already: 
 
-1) The **stdio** library is the **st**an**d**ard **i**nput/**o**utput library which we’ll use to print text to the console. We import it using the **include** *preprocessor directive*; don’t worry, we’ll learn more about what preprocessor directives are later!
+1) The **stdio** library is the **st**an**d**ard **i**nput/**o**utput library which we’ll use to print text to the console. Think of **libraries** as a collection of tools that other people have coded so that we don't have to; typically a library is dedicated to *one thing* and I'm sure you can guess what **stdio** is dedicated to. 
 
-Just know that preprocessor directives start with a **#** (fun fact: also called an octothorpe), and that `#include <stdio.h>` tells C to copy all the code from stdio so that we get access to **printf** and everything else in that library.
+We import it using the **include** *preprocessor directive*; don’t worry, we’ll learn more about what preprocessor directives are later! Just know that preprocessor directives start with a **#** (fun fact: also called an octothorpe), and that `#include <stdio.h>` tells C to copy all the code from stdio so that we get access to **printf** and everything else in that library.
 
 2) All C programs start at the **main** function; not having a main will lead to an error! 
 
@@ -39,6 +71,8 @@ It is similar to Java’s main, which you may have already learned about in CS11
 If you don’t know what functions are yet, then just think of them as blocks of code. We will discuss them soon!
 
 3) Statements in C, like using the **printf** function, end with a *semicolon*. This helps C read the program as semicolons tell it where one statement ends and another begins.  
+
+Okay so we've seen our first C program but how do we actually run it? 
 
 ## Running C Code 
 
