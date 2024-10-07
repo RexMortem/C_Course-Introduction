@@ -12,7 +12,14 @@ You can find out more about the society at [their website](https://uwcs.co.uk).
 
 ## How to use this repository
 
-- Mention the pdf (how to read on DCS? Check the Linux options! Github too)
-- Mention the markdown
-- Mention how it's got HTML in it (so use something blah blah)
-- Pro tip: because HTML, you can click on the table of contents 
+If you're using DCS machines and don't know how to navigate Linux, use the [Linux 101 Guide](https://uwcs.co.uk/resources/linux-101/).
+
+1) First, clone the repository. If you're new to git then go to the folder you want to store the session in, and run:
+```sh
+git clone https://github.com/RexMortem/C_Course-Introduction
+```
+
+2) Read Session1.pdf; if you're on DCS machines, you can do this using **evince** or **okular** among other tools. If you're using your own machine, then most web browsers should work. Regardless of the device, I personally prefer opening pdfs in Chrome, Firefox or similar. 
+- Note the pdf has HTML elements including  (which limited pdf readers may not read properly, including GitHub's file preview)
+    - The topics in the contents lists are hyperlinks which should make navigating the document much easier
+- You can also read through the markdown file 

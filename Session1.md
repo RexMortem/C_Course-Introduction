@@ -62,7 +62,7 @@ Okay so we've seen our first C program but how do we actually run it?
 If you're working on DCS machines, then you should have the GNU C compiler installed. 
 
 If not then you should check by running the following command:
-```
+```sh
 gcc --version
 ```
 *gcc stands for GNU Compiler Collection* 
