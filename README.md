@@ -20,6 +20,6 @@ git clone https://github.com/RexMortem/C_Course-Introduction
 ```
 
 2) Read Session1.pdf; if you're on DCS machines, you can do this using **evince** or **okular** among other tools. If you're using your own machine, then most web browsers should work. Regardless of the device, I personally prefer opening pdfs in Chrome, Firefox or similar. 
-- Note the pdf has HTML elements including  (which limited pdf readers may not read properly, including GitHub's file preview)
-    - The topics in the contents lists are hyperlinks which should make navigating the document much easier
-- You can also read through the markdown file 
+    - Note the pdf has HTML elements including  (which limited pdf readers may not read properly, including GitHub's file preview)
+        - The topics in the contents lists are hyperlinks which should make navigating the document much easier
+    - You can also read through the markdown file 
