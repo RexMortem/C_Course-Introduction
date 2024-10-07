@@ -204,7 +204,7 @@ The Time - 11 : 23 : 59
 ```
 *The output* 
 
-What did I mean by **“different displays of values”**? To explain, I will introduce the **char** which is a smaller int data type, with a tiny range of possible values ($-128$ to $+127$), that is typically used to represent *characters* using **ASCII** rather than to represent integers. 
+What did I mean by **“different displays of values”**? To explain, I will introduce the **char** which is a smaller int data type, with a tiny range of possible values (`-128` to `+127`), that is typically used to represent *characters* using **ASCII** rather than to represent integers. 
 
 For those who don’t know, ASCII is a standard encoding of integers to commonly used characters. To name a few: 65 is ‘A’, 66 is ‘B’, 67 is ‘C’; 97 is ‘a’, 98 is ‘b’, 99 is ‘c’; 33 is ‘!’, 35 is ‘#’. Of course the digits too; they’re encoded by the numbers 48-57. 
 
