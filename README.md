@@ -11,3 +11,8 @@ The C Course is a 4-week long course on the basics of C Programming made by UWCS
 You can find out more about the society at [their website](https://uwcs.co.uk). 
 
 ## How to use this repository
+
+- Mention the pdf (how to read on DCS? Check the Linux options! Github too)
+- Mention the markdown
+- Mention how it's got HTML in it (so use something blah blah)
+- Pro tip: because HTML, you can click on the table of contents 

@@ -1,2 +1,5 @@
 # ignoring everything in exes folder 
 exes/*
+
+# ignoring vscode settings 
+.vscode/*
