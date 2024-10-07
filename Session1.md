@@ -19,6 +19,8 @@ The course starts gently by introducing basic programming concepts in C such as 
 - Basic Loops
 - Arrays (& undefined behaviour)
 
+
+
 ## <a name="WhatIsC"> What is C </a>
 
 C is a general purpose programming language that originated as the language for UNIX ….
@@ -73,7 +75,7 @@ If you do not have it installed, then follow the installation instructions from 
 
 A compiler turns **high-level** code (such as **C**) into **low-level** machine code that the computer can run. 
 
-The idea is that **C** code is relatively portable so you can write some **C** code, give that code to multiple different machines and they'll be able to run it using their respective compilers.  
+The idea is that **C** code is relatively portable so you can write some **C** code, give that code to multiple different machines and they'll be able to run it using their respective compilers. In practice, since **C** often talks "directly" to Operating Systems, you will often have to write slightly different **C** code for different machines for complex programs.  
 
 ![A diagram describing compilation](images/CompilationDiagram.png)
 - Compiling C code turns it into an exe 
@@ -154,7 +156,7 @@ Both of these **declare** the variable (they tell **C** that memory must be rese
 
 We will see soon that the variable that isn’t initialised *does* have a value, but it might not be what you expect! 
 
-### Integer variables 
+### <a name="Integers"> Integer variables </a> 
 
 First, we’ll explore the integer (positive & negative whole number) types! 
 
@@ -178,16 +180,31 @@ main(){
 
 As it’s useful to output values in meaningful ways for debugging complex programs and even outputs for simple command-line programs, we’ll take a closer look at using `printf`. 
 
-### Format Specifiers (using printf)
+### <a name="FormatSpecifiers"> Format Specifiers (using printf) </a>
 
 The formatting piece of text includes **format specifiers** which begin with **%** and are replaced by the other values you pass `printf`; different values (or different ways of displaying values) require different format specifiers. 
 
 For example, **%d** is used to stand in for a regular old base 10 integer (**d** for **d**ecimal). The pieces of text that we’ve been passing are called **strings** and so use **%s**. 
 
 ```c
+#include <stdio.h>
+
+int main(){
+    int hours = 11;
+    int minutes = 23;
+    int seconds = 59;
+
+    printf("%s - %d : %d : %d \n", "The Time",  hours, minutes, seconds);
+}
+```
+*Example for time using both **%s** and **%d***
 
 ```
-(image: Example for time using %s, %d )(image)What did I mean by “different displays of values”? There’s a smaller int data type called a char, with a tiny range of possible values (-128 to +127), and it’s typically used to represent characters using ASCII rather than integers. 
+The Time - 11 : 23 : 59
+```
+*The output* 
+
+What did I mean by **“different displays of values”**? To explain, I will introduce the **char** which is a smaller int data type, with a tiny range of possible values ($-128$ to $+127$), that is typically used to represent *characters* using **ASCII** rather than to represent integers. 
 
 For those who don’t know, ASCII is a standard encoding of integers to commonly used characters. To name a few: 65 is ‘A’, 66 is ‘B’, 67 is ‘C’; 97 is ‘a’, 98 is ‘b’, 99 is ‘c’; 33 is ‘!’, 35 is ‘#’. Of course the digits too; they’re encoded by the numbers 48-57. 
 
