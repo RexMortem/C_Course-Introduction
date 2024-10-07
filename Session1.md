@@ -22,11 +22,11 @@ main(){
 
 There are a few things to note already: 
 
-1) The stdio library is the standard input/output library which we’ll use to print text to the console. We import it using the include *preprocessor directive*; don’t worry, we’ll learn more about what preprocessor directives are later!
+1) The **stdio** library is the **st**an**d**ard **i**nput/**o**utput library which we’ll use to print text to the console. We import it using the **include** *preprocessor directive*; don’t worry, we’ll learn more about what preprocessor directives are later!
 
-Just know that preprocessor directives start with a # (fun fact: also called an octothorpe), and that #include <stdio.h> tells C to copy all the code from stdio so that we get access to printf and everything else in that library.
+Just know that preprocessor directives start with a **#** (fun fact: also called an octothorpe), and that `#include <stdio.h>` tells C to copy all the code from stdio so that we get access to **printf** and everything else in that library.
 
-2) All C programs start at the main function; not having a main will lead to an error! 
+2) All C programs start at the **main** function; not having a main will lead to an error! 
 
 ```
 undefined reference to 'WinMain'
@@ -38,7 +38,7 @@ It is similar to Java’s main, which you may have already learned about in CS11
 
 If you don’t know what functions are yet, then just think of them as blocks of code. We will discuss them soon!
 
-3) Statements in C, like using the printf function, end with a semicolon. This helps C read the program as semicolons tell it where one statement ends and another begins.  
+3) Statements in C, like using the **printf** function, end with a *semicolon*. This helps C read the program as semicolons tell it where one statement ends and another begins.  
 
 ## Running C Code 
 
@@ -50,15 +50,13 @@ gcc --version
 ```
 *gcc stands for GNU Compiler Collection* 
 
-<h1> test </h1>
-
 If you do not have it installed, then follow the installation instructions from [here](https://gcc.gnu.org/install/).
 
 ### What is a compiler? 
 
-A compiler turns high-level code (such as C) into low-level machine code that the computer can run. 
+A compiler turns **high-level** code (such as **C**) into **low-level** machine code that the computer can run. 
 
-The idea is that C code is relatively portable so you can write some C code, give that code to multiple different machines and they'll be able to run it using their respective compilers.  
+The idea is that **C** code is relatively portable so you can write some **C** code, give that code to multiple different machines and they'll be able to run it using their respective compilers.  
 
 ![A diagram describing compilation](images/CompilationDiagram.png)
 - Compiling C code turns it into an exe 
@@ -83,17 +81,40 @@ Using the above, see if you can figure out how to compile one of the c files ins
 
 ## Exercise for Hello World 
 
-1) Try changing up the text outputted to the console. Note that C does not automatically insert newlines after each usage of printf! 
+1) Try changing up the text outputted to the console. Note that **C** does not automatically insert *newlines* after each usage of `printf`! 
 
-(image: Code with no newline [these code and output screenshots won't be needed when we have Jupyter running])So the above code outputs: 
+```c
+#include <stdio.h>
 
-(image)If you want a newline, use \n which stands for the newline character. 
+main(){
+    printf("hello ");
+    printf("world");
+}
+```
 
-(image: Corrected code has newline)Mention when introducing functions properly, that void can be used to mean “no parameters”
+So the above code outputs:
 
-Variables  
+```
+hello world
+```
+*Key thing to note is that it's all on one line*
 
-So we can interact with the console using printf but we need a way of handling state; at the very least, we need a way of storing input when we start reading input from the user. 
+If you want a newline, use **\n** which stands for the *newline* character. 
+
+```c
+#include <stdio.h>
+
+main(){
+    printf("hello\n");
+    printf("world");
+}
+```
+
+Have fun coding! 
+
+## Variables  
+
+So we can interact with the console using `printf` but we need a way of handling data; at the very least, we need a way of storing input when we start reading input from the user. 
 
 Enter variables! 
 
