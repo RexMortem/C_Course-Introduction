@@ -46,7 +46,7 @@ Let's start with the first program almost *everyone* writes.
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     printf("hello world");
 }
 ```
@@ -125,7 +125,7 @@ Note that the `-o` flag lets you name the exe and, by extension, place it in a s
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     printf("hello ");
     printf("world");
 }
@@ -143,7 +143,7 @@ If you want a newline, use **\n** which stands for the *newline* character.
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     printf("hello\n");
     printf("world");
 }
@@ -183,7 +183,7 @@ First, we’ll explore the integer (positive & negative whole number) types!
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     int a = 5;
     int b, c;
 
@@ -323,7 +323,7 @@ If you’re concerned about not being able to display the **%** symbol, fret not
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     int exec = 6; 
     int cProgrammers = 20;
     int both = 4;
@@ -352,7 +352,7 @@ His current code is:
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     int charge = 57;
 
     printf("FILL ME IN");
@@ -368,7 +368,7 @@ We’ll be using **comments** to help *describe* and *explain* bits of code; the
 Use **//** for single-line comments. Let’s see how they’re used to showcase the *increment* operator (**++**), which increases a number by 1. 
 
 ```c
-main(){
+int main(){
     int i = 5; 
     i++;
 
@@ -398,7 +398,7 @@ To end a multi-line comment, use **\*/**
 
     (This is a multiline comment)
 */
-main(){
+int main(){
     int i = 5; 
     i++;
 
@@ -456,7 +456,7 @@ Having ranges of values for integers begs the question: "What if you go above or
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     char maxVal = 127;
     maxVal++; // integer overflow! 
 
@@ -592,7 +592,7 @@ Let's do `3/2` like the ad promised, and we can see why explicit casting is usef
 ```c
 #include <stdio.h>
 
-main(){
+int main(){
     int a = 3;
     int b = 2;
 
@@ -690,7 +690,7 @@ So we use **arrays** which are a collection of values. The values are stored in 
 
 We can initialise an array in **C** like this: 
 ```c 
-int[] anArray = {3, 1, 4, 2, 11};
+int anArray[] = {3, 1, 4, 2, 11};
 ```
 
 So the syntax is: 
@@ -707,7 +707,7 @@ We call accessing elements of the array **indexing**. We index using **[]**, but
 *A visualisation of the initialised array, with indexes below the cells*
 
 ```c
-float[] yearAverages = {71.4, 69.2, 55.4, 80.1, 76.4, 66.3, 48.0, 57.6, 66.1, 62.3};
+float yearAverages[] = {71.4, 69.2, 55.4, 80.1, 76.4, 66.3, 48.0, 57.6, 66.1, 62.3};
 
 printf("%f\n", yearAverages[0]); // first grade in array
 
@@ -726,7 +726,7 @@ We've seen how to *initialise* an array straight away, but what about if can't w
 
 We can **declare** the array like so:
 ```c
-int[5] anArray;
+int anArray[5];
 ```
 
 Note that we *have to* provide a size for **C** to give us enough space. If you define the elements straightaway with `{}`, then **C** figures out the size of the array for you.
@@ -741,7 +741,7 @@ We will cover arrays more deeply next week when we explore pointers.
 
 1) Given the array:
 ```c
-int[] numbers = {4, 5, 3, 2, 9, 17, 1, 4};
+int numbers[] = {4, 5, 3, 2, 9, 17, 1, 4};
 ```
 
 Can you calculate the average for this array (using a for loop)?
