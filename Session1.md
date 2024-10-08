@@ -1,9 +1,10 @@
 # Session 1 - An Introduction To C 
 
-The course starts gently by introducing basic programming concepts in C such as variables, types, functions, and loops. If you’re an experienced programmer then feel free to skim through these sections to get to the more C-specific parts! 
+The course starts gently by introducing basic programming concepts in **C** such as variables, types, and loops. If you’re an experienced programmer then feel free to skim through these sections to get to the more **C**-specific parts! 
 
 I would personally recommend doing all the exercises regardless of your level, to ensure that you know the material. At times, my writing can be verbose so please do skim through the content, scan for bold/italicised text, and carefully read content when you cannot do the corresponding exercises. 
 
+Good luck and happy coding!
 ## Contents 
 
 - <a href="#WhatIsC" style="color: black;"> What is C </a>
@@ -11,23 +12,29 @@ I would personally recommend doing all the exercises regardless of your level, t
 - <a href="#Compiling" style="color: black;"> Compiling & Running C Code </a>
     - <a href="#HelloWorldExercises" style="color: black;"> Compiling and Hello World Exercises </a>
 - <a href="#Variables" style="color: black;"> Variable Declaration & Initialisation </a> 
-- <a href="#Integers" style="color: black;"> Int </a>
+- <a href="#Integers" style="color: black;"> Ints </a>
 - <a href="#FormatSpecifiers" style="color: black;"> Format Specifiers (**%d**, **%s**, **%c**) </a>
     - <a href="#CharExercises" style="color: black;"> Int, Char, and Format Specifier Exercises </a>
 - <a href="#Comments" style="color: black;"> Comments (and increment operator) </a>
 - <a href="#IntegerTypes" style="color: black;"> More Integer Types (char, short, int, long, long long) </a>
     - <a href="#IntegerTypeExercise" style="color: black;"> Integer Type Exercise (size of types) </a> 
-- <a href="#OverflowUnderflow" style="color: black;"> Underflow/Overflow </a>
-- <a href="#Unsigned" style="color: black;"> Unsigned Integers  </a> 
-- <a href="#StdInt" style="color: black;"> StdInt Library </a> 
-- floating-point types 
-- Functions 
-- Basic Loops
+    - <a href="#OverflowUnderflow" style="color: black;"> Underflow/Overflow </a>
+    - <a href="#Unsigned" style="color: black;"> Unsigned Integers  </a> 
+    - <a href="#StdInt" style="color: black;"> StdInt Library </a> 
+    - <a href="#IntegerExercises" style="color: black;"> Integer Exercises </a> 
+- <a href="#IfStatements" style="color: black;"> Conditional Logic (If Statements) </a>
+    - <a href="#IfStatementExercises" style="color: black;"> If Statement Exercises </a>
+- <a href="#Floats" style="color: black;"> Floating-Point Types (Decimals) </a> 
+- For Loops
 - Arrays (& undefined behaviour)
 
 ## <a name="WhatIsC"> What is C </a>
 
-C is a general purpose programming language that originated as the language for UNIX ….
+**C** is a general purpose programming language that originated as the language for the UNIX Operating System. From its humble beginnings, **C** has been spread everywhere and it's highly likely that you'll be relying on **C** code every single day. Everything from airplane flight systems to version-control software like Git to applications you may be using right now relies on **C**. Even if you're coding something in a different language, it's likely that the interpreter/compiler is written in **C** and your machine is probably being held together by **C** and duck-tape. 
+
+**C** is known for its mix of a high-level and low-level approach; you still get a decent amount of features that you see in languages like Python, but you can still interact pretty closely with the hardware like a low-level language does. Relatedly, it's known for having some pretty hard concepts like pointers and memory management but don't worry - we'll cover these in the course! 
+
+Since it's a small language with minimal features (so you can write 🗲 lightning 🗲 fast code), **C** does not hold your hand. This course will help you through the stuff that **C** doesn't handle with concepts like Undefined Behaviour, and point out common pitfalls. 
 
 ## <a name="HelloWorld"> Hello, World! </a>
 
@@ -45,9 +52,9 @@ There are **3** main things to note already:
 
 1) The **stdio** library is the **st**an**d**ard **i**nput/**o**utput library which we’ll use to print text to the console. Think of **libraries** as a collection of tools that other people have coded so that we don't have to; typically a library is dedicated to *one thing* and I'm sure you can guess what **stdio** is dedicated to. 
 
-We import it using the **include** *preprocessor directive*; don’t worry, we’ll learn more about what preprocessor directives are later! Just know that preprocessor directives start with a **#** (fun fact: also called an octothorpe), and that `#include <stdio.h>` tells C to copy all the code from stdio so that we get access to **printf** and everything else in that library.
+We import it using the **include** *preprocessor directive*; don’t worry, we’ll learn more about what preprocessor directives are later! Just know that preprocessor directives start with a **#** (fun fact: also called an octothorpe), and that `#include <stdio.h>` tells **C** to copy all the code from stdio so that we get access to **printf** and everything else in that library.
 
-2) All C programs start at the **main** function; not having a main will lead to an error! 
+2) All **C** programs start at the **main** function; not having a main will lead to an error! 
 
 ```
 undefined reference to 'WinMain'
@@ -57,11 +64,11 @@ undefined reference to 'WinMain'
 
 It is similar to Java’s main, which you may have already learned about in CS118, in that it is the first block of code run. 
 
-If you don’t know what functions are yet, then just think of them as blocks of code. We will discuss them soon!
+If you don’t know what functions are yet, then just think of them as blocks of code. We will discuss them next session!
 
-3) Statements in C, like using the **printf** function, end with a *semicolon*. This helps C read the program as semicolons tell it where one statement ends and another begins.  
+3) Statements in **C**, like using the **printf** function, end with a *semicolon*. This helps **C** read the program as semicolons tell it where one statement ends and another begins.  
 
-Okay so we've seen our first C program but how do we actually run it? 
+Okay so we've seen our first **C** program but how do we actually run it? 
 
 ## <a name="Compiling"> Running C Code </a> 
 
@@ -82,12 +89,12 @@ A compiler turns **high-level** code (such as **C**) into **low-level** machine 
 The idea is that **C** code is relatively portable so you can write some **C** code, give that code to multiple different machines and they'll be able to run it using their respective compilers. In practice, since **C** often talks "directly" to Operating Systems, you will often have to write slightly different **C** code for different machines for complex programs.  
 
 ![A diagram describing compilation](images/CompilationDiagram.png)
-- Compiling C code turns it into an exe 
+- Compiling **C** code turns it into an exe 
 - You can run the exe with `./TheExe`
 
 ### <a name="CompilingAndExecuting"> Compiling and Executing C Code </a>
 
-Use `gcc` to compile C code. As an example:
+Use `gcc` to compile **C** code. As an example:
 
 1) create a new file directly under the main folder (named C_Course-Introduction) 
 2) Call it `exampleToCompile.c`
@@ -102,7 +109,7 @@ Note that the `-o` flag lets you name the exe and, by extension, place it in a s
 
 ## <a name="HelloWorldExercises"> Exercises for Hello World & Compiling </a>
 
-1) Compile one of the c files inside of `cFiles` (**hint:** use the <a href="#CompilingAndExecuting" style="color: black;"> <u>last paragraph of Compiling and Executing</u> </a> to help you)
+1) Compile one of the **C** files inside of `cFiles` (**hint:** use the <a href="#CompilingAndExecuting" style="color: black;"> <u>last paragraph of Compiling and Executing</u> </a> to help you)
 
 2) Try changing up the text outputted to the console. Note that **C** does not automatically insert *newlines* after each usage of `printf`! 
 
@@ -156,9 +163,9 @@ Variables have:
 
 This is the difference between **declaration** and **initialisation**. 
 
-Both of these **declare** the variable (they tell **C** that memory must be reserved for the variable), but only the first **initialises** the variable with a value. 
+Both of these **declare** the variable (they tell **C** that memory must be reserved for the variable), but only the first **initialises** the variable with a value. In other words, **initialisation** is assigning the variable with a value. 
 
-We will see soon that the variable that isn’t initialised *does* have a value, but it might not be what you expect! 
+We will see later that the variable that isn’t initialised *does* have a value, but it might not be what you expect! 
 
 ## <a name="Integers"> Integer variables </a> 
 
@@ -475,6 +482,13 @@ Most modern implementations also provide **int64_t** and **uint64_t**.
 
 ### <a name="IntegerExercises"> Integer Exercises </a>
 
+1) In variable initialisation, I said that uninitialised variables *do* have a value but they might not be what you expect! Write a program to declare some variables (without initialising), and see what values they have! If you don't know where to start, here are some uninitialised variables: 
+```c
+int a,b,c,d,e;
+```
+
+2) Once you've finished Exercise 1, have a read through the explanation in the solution file (`cFiles/exerciseSolutions/IntegerExercises/Exercise1.c`). 
+
 ## <a name="IfStatements"> Conditional Logic (If Statements) </a>
 
 Doing certain things under certain conditions is *essential*. The basics of this is the if statement:
@@ -501,6 +515,8 @@ int isOver18 = (age >= 18); // you can use brackets to ensure things inside happ
 printf("True: %d", isOver18); // 1 
 ```
 
+Wow that's fun! So `0` is typically used for **False** and `1` is used for **True**? This totally isn't foreshadowing anything in Session 2. 
+
 We can already do a lot with just this, but we can make the if statement more *powerful* with **else**s:
 
 <img src="images/IfElseStatementSyntax.PNG" alt="An if-else statement with special colouring" width="321" height="125"/>
@@ -511,7 +527,39 @@ We can make these even more *powerful* with **else if**s:
 
 ### <a name="IfStatementExercises"> If Statement Exercises </a>
 
+1) You can combine conditions with AND (`&&`) and OR (`||`), such as in `(x > 3) && (x < 7)` (x is between `3` and `7`). 
+
+Amy is programming a game and only wants to let a player fire a spell when they're in range (within `3` cells), have enough mana to cast (`35` points), and are not on cooldown (`2000` milliseconds). Finish her code (and turn it into an executable C program).
+
+```c 
+int mana = 70; // mana points
+int lastCast = 1500; // milliseconds
+int distance = 3; // cells/blocks 
+
+// IF SUCCESSFUL
+printf("Cast spell!");
+// IF NOT SUCCESSFUL
+printf("Cannot cast spell!");
+```
+
+2) Change your solution to Exercise 1 so that the user knows *why* they can't cast the spell (did they run out of mana? are they within range?)
+
+## <a name="Floats"> Representing Decimals: Floating-Point Numbers </a>
+
+Before we cover the pure *joy* of for loops, here's a quick word from our sponsor. 
+
+```
+Aren't you tired of having to use boring old integer types? Not even being able to use 0.5 or more exciting numbers? Doing 3/2 and getting 1? It makes no sense!
+
+Introooooduccingggggg floating-point types!
+These guys will perk your code right up with ✨decimal numbers✨
+
+We've got float for all your basic decimal needs, and if you need a *little* extra precision then we've got the ultra-premium-deluxe d o u b l e type! 
+```
+
 ## For loops
+
+For loops are used to 
 
 ## While loops
 
@@ -526,13 +574,19 @@ When we saw that integers can be displayed as characters, we were actually conve
 ### In Floats
 ### Overflow/Underflow
 
-Functions 
+## Functions 
 
 Good code is often reusable and easily adaptable code. 
 
-Arrays 
+## Arrays
 
-Next Session…
+
+
+## Next Session…
 
 We’ll be covering arguably the most important and famous topic in C: pointers. 
 
+## Acknowledgements
+
+Thanks to Alia Meek for helping proof-read the session. 
+Originally created by Edward Denton. 

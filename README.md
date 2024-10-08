@@ -2,7 +2,7 @@
 
 A basic, and hopefully gentle, introduction to the C Programming Language.
 
-This session covers the very basics of C i.e. concepts that are present in every other language like variables, for loops, and functions; this session will also introduce the concept of undefined behaviour and how C likes to handle - or not handle - things. 
+This session covers the very basics of C i.e. concepts that are present in most other languages like variables, for loops, and arrays; this session will also introduce the concept of undefined behaviour and how C likes to handle - or not handle - things. 
 
 ## What is the C Course?
 
@@ -24,4 +24,8 @@ git clone https://github.com/RexMortem/C_Course-Introduction
         - The topics in the contents lists are hyperlinks which should make navigating the document much easier
     - Alternatively, you can also read through the markdown file **Session1.md** 
 
-3) If you're really struggling (or if you would like to check your solutions) then you can find sample solutions to exercises from the session inside `cFiles/exerciseSolutions`. Please don't just read the solutions without attempting the exercises `:)`
+3) If you're really struggling then you can find sample solutions to exercises from the session inside `cFiles/exerciseSolutions`. Do have a look at the solutions after you've written a solution that you're convinced is right; it might give you ideas for how to improve your code. Please don't just read the solutions without attempting the exercises `:)`
+
+## Contact Us 
+
+If there are any problems with the course or suggestions (especially with improving how digestible the content is), then please contact me on discord at **rexmortem60**.  
