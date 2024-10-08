@@ -1,7 +1,9 @@
 #include <stdio.h> 
 
-main(){
-    
+int main(){
     unsigned char beyondTypicalRange = 254;
-    printf("");
+    printf("%d\n", beyondTypicalRange);
+
+    beyondTypicalRange += 3; // Demonstrating overflow 
+    printf("%d\n", beyondTypicalRange); // 1
 }

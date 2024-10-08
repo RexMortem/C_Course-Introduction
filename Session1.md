@@ -30,6 +30,7 @@ Good luck and happy coding!
     - <a href="#ForLoopExercises" style="color: black;"> For Loop Exercises </a> 
 - <a href="#Arrays" style="color: black;"> Arrays </a>
     - <a href="#ArrayExercises" style="color: black;"> Array Exercises </a>
+- <a href="#OptionalExercises" style="color: black;"> Optional Exercises (for the 2025 version of the course) </a>
 
 ## <a name="WhatIsC"> What is C </a>
 
@@ -67,7 +68,7 @@ undefined reference to 'WinMain'
 
 It is similar to Java’s main, which you may have already learned about in CS118, in that it is the first block of code run. 
 
-If you don’t know what functions are yet, then just think of them as blocks of code. We will discuss them next session!
+If you don’t know what functions are yet, then just think of them as blocks of code. We will discuss them (and why it says `int` before main) next session!
 
 3) Statements in **C**, like using the **printf** function, end with a *semicolon*. This helps **C** read the program as semicolons tell it where one statement ends and another begins.  
 
@@ -474,7 +475,16 @@ int main(){
 
 The standard integers we are using so far are **signed** integers. As in, they have a **sign** (*positive* or *negative*). If you want to use only the positive range, then you can use unsigned integers by adding *“unsigned”* in the type! 
 
-Since they don't represent negative integers, you roughly **double** the number of positive integers you can use.
+Since they don't represent negative integers, you roughly **double** the number of positive integers you can use. For example: 
+```c
+unsigned char beyondTypicalRange = 254;
+printf("%d\n", beyondTypicalRange);
+
+beyondTypicalRange += 3; // Demonstrating overflow 
+printf("%d\n", beyondTypicalRange); // 1
+```
+
+The range for a typical signed char is `-128` to `+127` whereas the unsigned char is from `0` to `+255`. 
 
 ## <a name="StdInt"> What if I want a guaranteed size? </a>
 
@@ -756,12 +766,19 @@ Can you calculate the average for this array (using a for loop)?
 
 Well done on making it through Session 1 alive! 
 
-Next session, we’ll be covering arguably the most important and famous topic in C: pointers. 
+Next session, we’ll be covering arguably the most important and famous topic in **C**: pointers. 
 We'll start with how to make our code a little more organised and powerful (now that we know some more advanced concepts) with functions. 
 
 Hope to see you there! 
 
+## <a name="OptionalExercises"> Optional Exercises </a> 
+
+(TO BE COMPLETED BEFORE C WORKSHOP 2025 - since people finished the 2024 session with almost an hour left)
+
+It's not expected that you do any of these exercises; this is for people who finish the session early and are bored. 
+
 ## Acknowledgements
 
 Thanks to Alia Meek for helping proof-read the session. 
+Thanks to Lewis Parry and Louis Tanak for helping out during the session's workshop. 
 Originally created by Edward Denton. 

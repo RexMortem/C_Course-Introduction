@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main(){
+int main(){
     // I mean, this one varies depending on what your name is
     char capitalE = 'E';
     char lcD = 'd';

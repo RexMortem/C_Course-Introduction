@@ -1,7 +1,7 @@
 #include <stdio.h> 
 #include <stdint.h>
 
-main(){
+int main(){
     // common types
     printf("%d\n", sizeof(char));
     printf("%d\n", sizeof(short));

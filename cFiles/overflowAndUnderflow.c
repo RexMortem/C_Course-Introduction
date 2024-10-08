@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main(){
+int main(){
     char maxVal = 127;
     maxVal++; // integer overflow! 
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main(){
+int main(){
     int mana = 70; // mana points
     int lastCast = 1500; // milliseconds
     int distance = 3; // cells/blocks 

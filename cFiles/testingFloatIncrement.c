@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main(){
+int main(){
     float a = 5.5f;
     a++;
 

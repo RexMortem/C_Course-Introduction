@@ -7,7 +7,7 @@
 
     (This is a multiline comment)
 */
-main(){
+int main(){
     int i = 5; 
     i++;
 

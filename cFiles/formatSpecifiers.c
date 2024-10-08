@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main(){
+int main(){
     int hours = 11;
     int minutes = 23;
     int seconds = 59;

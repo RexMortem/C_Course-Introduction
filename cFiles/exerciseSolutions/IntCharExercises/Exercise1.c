@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main(){
+int main(){
     int exec = 6;
     int cProgrammers = 20;
     int both = 4;
