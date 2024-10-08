@@ -100,8 +100,12 @@ The idea is that **C** code is relatively portable so you can write some **C** c
 Use `gcc` to compile **C** code. As an example:
 
 1) create a new file directly under the main folder (named C_Course-Introduction) 
+
 2) Call it `exampleToCompile.c`
-3) Run the command `gcc exampleToCompile.c -o exampleProgram`
+
+3) Fill it with some C code (like the Hello World program from above!)
+
+4) Run the command `gcc exampleToCompile.c -o exampleProgram`
 
 This should give you an exe named `exampleProgram.exe` that you can run using:
 ```
