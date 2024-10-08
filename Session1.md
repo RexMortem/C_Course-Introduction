@@ -16,9 +16,10 @@ I would personally recommend doing all the exercises regardless of your level, t
     - <a href="#CharExercises" style="color: black;"> Int, Char, and Format Specifier Exercises </a>
 - <a href="#Comments" style="color: black;"> Comments (and increment operator) </a>
 - <a href="#IntegerTypes" style="color: black;"> More Integer Types (char, short, int, long, long long) </a>
-- <a href="#WhatIsC" style="color: black;"> underflow/overflow </a>
-- use of stdint library 
-- unsigned integers 
+    - <a href="#IntegerTypeExercise" style="color: black;"> Integer Type Exercise (size of types) </a> 
+- <a href="#OverflowUnderflow" style="color: black;"> Underflow/Overflow </a>
+- <a href="#Unsigned" style="color: black;"> Unsigned Integers  </a> 
+- <a href="#StdInt" style="color: black;"> StdInt Library </a> 
 - floating-point types 
 - Functions 
 - Basic Loops
@@ -319,6 +320,13 @@ main(){
 
 2) Try to spell your name out using chars! If you’re feeling ambitious, try doing this using a mixture of capital and lower case letters. Refer to [this if needed](https://www.asciitable.com/).
 
+To make this easier, you can set the value of a char using the character that it represents. For example:
+
+```c
+char capitalE = 'E';
+```
+*Note that characters are wrapped in single quotes*
+
 3) Timmy wants to display how charged an attack is in his game! Can you help him output the text: 
 ```
 Laser is charging, at 57% now! 
@@ -420,73 +428,103 @@ printf("Size of an int (in bytes): %d\n", sizeof(int));
 
 Try to write out a C program that prints out the size of all 5 of the above types. 
 
-## Overflow/Underflow - What if the number goes above/below the range? 
+## <a name="OverflowUnderflow"> Overflow/Underflow - What if the number goes above/below the range? </a>
 
-Having ranges of values for integers begs the question: "what if you go above or below the range?"
+Having ranges of values for integers begs the question: "What if you go above or below the range?"
 
-Going above the range (overflow) of an int type will wrap around to the minimum value. 
+- Going *above* the range (**overflow**) of an int type will wrap around to the *minimum* value. 
+- Similarly, going *below* the range (**underflow**) of an int type will wrap around to the *maximum* value. 
 
-Similarly, going below the range (underflow) of an int type will wrap around to the maximum value. 
+```c
+#include <stdio.h>
 
-(image: Integer overflow and underflow)Note that the decrement operator (—) subtracts 1 from a number.
+main(){
+    char maxVal = 127;
+    maxVal++; // integer overflow! 
 
-Overflow/Underflow - Type Casting 
+    printf("%d\n", maxVal); // output: -128
 
-When we saw that integers can be displayed as characters, we were actually converting integers to characters first: this is a type cast. 
+    char minVal = -128; 
+    minVal--; // integer underflow! 
 
-What if I want only positive numbers? 
+    printf("%d\n", minVal); // output: 127
+}
+```
+*Note that the decrement operator (`—`) subtracts `1` from a number.*
 
-The standard integers we use are signed integers. As in, they have a sign (positive or negative). If you want to use only the positive range, then you can use unsigned integers by adding “unsigned” in the type! 
+## <a name="Unsigned"> What if I want only positive numbers? </a>
 
-What if I want a guaranteed size?
+The standard integers we are using so far are **signed** integers. As in, they have a **sign** (*positive* or *negative*). If you want to use only the positive range, then you can use unsigned integers by adding *“unsigned”* in the type! 
 
-If the size of the int is crucial, such as in small embedded systems, you can use the stdint library. 
+Since they don't represent negative integers, you roughly **double** the number of positive integers you can use.
 
-Type
+## <a name="StdInt"> What if I want a guaranteed size? </a>
 
-Number of bytes
+If the exact size of the int is crucial, you can use the **stdint** (`<stdint.h>`) library. 
 
-Range of values
+| Type      | Number of bytes | Range of values     |
+| --------- | --------------- | ------------------- |
+| int8_t    | 1               | -2^7 to 2^7 - 1     |
+| int16_t   | 2               | -2^15 to 2^15 - 1   |
+| int32_t   | 4               | -2^31 to 2^31 - 1   |
+| uint8_t   | 1               | 0 to 2^8 - 1        |
+| uint16_t  | 2               | 0 to 2^16 - 1       |
+| uint32_t  | 4               | 0 to 2^32 - 1       |
 
-int8_t
+Most modern implementations also provide **int64_t** and **uint64_t**. 
 
-1
+### <a name="IntegerExercises"> Integer Exercises </a>
 
--2^7 to 2^7 - 1
+## <a name="IfStatements"> Conditional Logic (If Statements) </a>
 
-int16_t
+Doing certain things under certain conditions is *essential*. The basics of this is the if statement:
 
-2
+<img src="images/IfStatementSyntax.PNG" alt="An if statement with special colouring" width="311" height="74"/>
 
--2^15 to 2^15 - 1
+An example of its use: 
+```c
+int age = 19; // my current age 
 
-int32_t
+if(age >= 18){
+    printf("Yay I can vote!");
+}
+```
 
-4
+We can see that the `<condition>` - in this case, whether I am older than 18 - is **True** or **False**; that is, each `<condition>` has a value of **True** or **False** (called **boolean** values). However booleans do not have their own type in **C**; this begs the question: "what actually is `<condition>`?" 
 
--2^31 to 2^31 - 1
+Well, **False** is actually represented by `0` and **True** is represented by anything *except* `0`. Let's see what value **C** assigns our condition with.  
 
-uint8_t
+```c
+int age = 19; // my current age
+int isOver18 = (age >= 18); // you can use brackets to ensure things inside happen first
 
-1
+printf("True: %d", isOver18); // 1 
+```
 
-0 to 2^8 - 1
+We can already do a lot with just this, but we can make the if statement more *powerful* with **else**s:
 
-uint16_t
+<img src="images/IfElseStatementSyntax.PNG" alt="An if-else statement with special colouring" width="321" height="125"/>
 
-2
+We can make these even more *powerful* with **else if**s:
 
-0 to 2^16 - 1
+<img src="images/IfElseIfStatementSyntax.PNG" alt="An if-elseif statement with special colouring" width="397" height="218"/>
 
-uint32_t
+### <a name="IfStatementExercises"> If Statement Exercises </a>
 
-4
+## For loops
 
-0 to 2^32 - 1
+## While loops
 
-Most modern implementations also provide int64_t and uint64_t. 
 
-Using decimals: floats 
+
+## Using decimals: floats 
+
+## Type Casting - maybe as an exercise?
+
+When we saw that integers can be displayed as characters, we were actually converting integers to characters first: this is a **type cast**. 
+
+### In Floats
+### Overflow/Underflow
 
 Functions 
 
