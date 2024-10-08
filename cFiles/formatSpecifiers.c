@@ -9,10 +9,10 @@ main(){
 
     char a = 101;
 
-    printf("%c %d\n", a, a);
+    printf("%c : %d\n", a, a);
 
     int b = 100; 
 
-    printf("%c %d\n", b, b);
+    printf("%c : %d\n", b, b);
 }
 

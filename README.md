@@ -23,3 +23,5 @@ git clone https://github.com/RexMortem/C_Course-Introduction
     - Note the pdf has HTML elements including links/anchor elements (which limited pdf readers may not read properly, including GitHub's file preview)
         - The topics in the contents lists are hyperlinks which should make navigating the document much easier
     - Alternatively, you can also read through the markdown file **Session1.md** 
+
+3) If you're really struggling (or if you would like to check your solutions) then you can find sample solutions to exercises from the session inside `cFiles/exerciseSolutions`. Please don't just read the solutions without attempting the exercises `:)`
