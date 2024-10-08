@@ -25,8 +25,11 @@ Good luck and happy coding!
 - <a href="#IfStatements" style="color: black;"> Conditional Logic (If Statements) </a>
     - <a href="#IfStatementExercises" style="color: black;"> If Statement Exercises </a>
 - <a href="#Floats" style="color: black;"> Floating-Point Types (Decimals) </a> 
-- For Loops
-- Arrays (& undefined behaviour)
+    - <a href="#TypeCasts" style="color: black;"> Typecasting </a> 
+- <a href="#ForLoops" style="color: black;"> For Loops </a> 
+    - <a href="#ForLoopExercises" style="color: black;"> For Loop Exercises </a> 
+- <a href="#Arrays" style="color: black;"> Arrays </a>
+    - <a href="#ArrayExercises" style="color: black;"> Array Exercises </a>
 
 ## <a name="WhatIsC"> What is C </a>
 
@@ -423,6 +426,8 @@ For instance, the minimum number of bytes for an **int** is `2` however most mod
 | long (aka long int)               | `4`                       | `-2147483648` to `+2147483647` |   
 | long long (aka long long int)     | `8`                       | `-2^63` to `+2^63 - 1`         |
 
+The longs even come with their own format specifiers: **ld** (for long) and **lld** (for long long).
+
 ### <a name="IntegerTypeExercise"> Integer Type Exercise: Outputting the size of types </a>
 
 1) We know the *minimum* number of bytes that a type must have, but how do we know what the *actual* number of bytes is for *your* machine? Well, wouldn't you like to know you nosy little scamp! 
@@ -488,6 +493,8 @@ int a,b,c,d,e;
 ```
 
 2) Once you've finished Exercise 1, have a read through the explanation in the solution file (`cFiles/exerciseSolutions/IntegerExercises/Exercise1.c`). 
+
+3) Write a program which imports **stdint** and prints the size of each type mentioned above; verify that they really are that size! 
 
 ## <a name="IfStatements"> Conditional Logic (If Statements) </a>
 
@@ -555,36 +562,198 @@ Introooooduccingggggg floating-point types!
 These guys will perk your code right up with ✨decimal numbers✨
 
 We've got float for all your basic decimal needs, and if you need a *little* extra precision then we've got the ultra-premium-deluxe d o u b l e type! 
+Not enough for you? We've got *just* the type for you! looooong double! 
 ```
 
-## For loops
+- **float** can store decimals with precision up to 6-7 decimal places. 
+- **double** can store decimals with precision up to 14-15 decimal places. 
+- **long double** can store decimals with precision up to 18 decimal places. 
 
-For loops are used to 
+These guys also come with their own *format specifiers*: **%f** (for floats), **%lf** ("long float" for doubles), and **%Lf** ("LONG float" for long doubles). 
 
-## While loops
-
-
-
-## Using decimals: floats 
-
-## Type Casting - maybe as an exercise?
+###  <a name="TypeCasts"> Type Casting </a> 
 
 When we saw that integers can be displayed as characters, we were actually converting integers to characters first: this is a **type cast**. 
+Specifically, it's an **implicit** type cast since you didn't have to tell **C** to cast; it just does it for you. 
 
-### In Floats
-### Overflow/Underflow
+Sometimes, though you'll need to **explicitly** type cast. 
 
-## Functions 
+<img src="images/ExplicitCasting.PNG" alt="Explicit casting with special colouring" width="132" height="24"/>
+*How you write (syntax) for explicit typecasts*
 
-Good code is often reusable and easily adaptable code. 
+Let's do `3/2` like the ad promised, and we can see why explicit casting is useful: 
 
-## Arrays
+```c
+#include <stdio.h>
 
+main(){
+    int a = 3;
+    int b = 2;
 
+    float result = a/b; // Without explicit casting
+    printf("%f\n", result); // 1.000000
+
+    result = (float) a / (float) b; // With explicit casting
+    printf("%f\n", result); // 1.500000
+}
+```
+
+The first example is doing the integer division *first* and then converting the integer `1` to a float. 
+The second example is converting `3` and `2` to floats first, and then doing the division. 
+
+### <a name="FloatingExercises"> Floating-Point Exercises </a>
+
+1) We've got new types! You know what that means; we've got to check the sizes of them. Write a program to determine the sizes of these new types. 
+
+## <a name="ForLoops"> For loops </a>
+
+Ever wanted to do something *over and over again* a set number of times? Or do something again and again until something changes? You can use a **for loop** for that! 
+
+<img src="images/ForLoopSyntax.PNG" alt="Explicit casting with special colouring" width="358" height="70"/>
+
+- Expression/Statement 1 (start) is executed at the start; we'll use it to initialise a variable to keep track of how many times we've looped
+- Expression 2 (condition) is a condition that we check at the start of each loop; if it's true, then we keep looping 
+- Expression 3 (update) is executed after each loop (if we decide to keep going)
+
+For example, the following is a valid for loop:
+```c
+for(int i = 0; i < 4; i++){
+    printf("%d ", i);
+}
+```
+We call each time we go through the loop an *iteration* and if we're looping, then we are said to be *iterating* through the loop. 
+This particular loop iterates `4` times (for `i = 0, 1, 2, 3`).
+
+**Fun fact:** Before C99, you had to declare variables outside of the for loop so they'd look like this:
+```c
+int i; 
+
+for(i = 0; i < 4; i++){
+    printf("%d ", i);
+}
+```
+
+### <a name="ForLoopExercises"> For Loop Exercises </a>
+
+1) You can increment a variable by more than 1 by doing the following: 
+```c
+int a = 5;
+a = a + 3; // incrementing a by 3 
+```
+
+You can write this as:
+```c
+int a = 5;
+a += 3;
+```
+
+Can you use a for loop and an int n to sum all the integers from 1 to n? 
+
+2) Can you use a for loop to square then sum all of the even integers from 1 to n? 
+
+**Hint:** We can use `+=` in the *update* part of the for loop. 
+
+3) You can nest for loops by putting them inside each other, like so:
+
+```c
+for (int i = 0; i < 5; i++){
+    for (int j = 0; j < 5; j++){
+
+    }
+}
+```
+So for every value of `i`, the inside loop will run `j` times (for `j = 0, 1, 2, 3, 4`). Therefore, the inside loop will run `25` times. 
+
+Can you write a program to output all the ways to add integers from `1 to a` and `1 to b`? For example, for `a=2` and `b=3`: 
+```
+1 + 1 = 2
+1 + 2 = 3
+1 + 3 = 4
+2 + 1 = 3
+2 + 2 = 4 
+2 + 3 = 5
+```
+
+4) Can you edit your solution to Exercise 3 so that some ways aren't repeated? For example, in the above, `1 + 2 = 3` is repeated later as `2 + 1 = 3`. 
+
+## <a name="Arrays"> Arrays </a>
+
+So far, we've dealt with variables with just one value; this can't really be expanded that far. Imagine having `100` grades and trying to sum them all; it'd be insane to have a variable for each one! 
+
+So we use **arrays** which are a collection of values. The values are stored in contiguous memory locations which is a fancy way of saying that the values are stored *right next to each other*. 
+
+We can initialise an array in **C** like this: 
+```c 
+int[] anArray = {3, 1, 4, 2, 11};
+```
+
+So the syntax is: 
+
+<img src="images/ArrayInitialisation.PNG" alt="Explicit casting with special colouring" width="336" height="21"/>
+
+But how do we do anything with it? 
+
+### Indexing 
+
+We call accessing elements of the array **indexing**. We index using **[]**, but be careful! Indexing in **C** starts at 0, so the first element in the array is actually the **0th** element.
+
+![A visualisation of an integer array](images/Arrays.png)
+*A visualisation of the initialised array, with indexes below the cells*
+
+```c
+float[] yearAverages = {71.4, 69.2, 55.4, 80.1, 76.4, 66.3, 48.0, 57.6, 66.1, 62.3};
+
+printf("%f\n", yearAverages[0]); // first grade in array
+
+float theThirdGrade = yearAverages[2];
+
+printf("%f\n", theThirdGrade);
+
+yearAverages[1] = 70.0; // changing a value in the array
+```
+
+Of course, we can have arrays of floats or ints or chars; you name it. In fact, we've been secretly dealing with an array of chars this entire time: a **string** is just an array of characters. 
+
+### Declaring 
+
+We've seen how to *initialise* an array straight away, but what about if can't write the elements directly into the array. What if they're inserted from a file or some other location (not written directly in the code).
+
+We can **declare** the array like so:
+```c
+int[5] anArray;
+```
+
+Note that we *have to* provide a size for **C** to give us enough space. If you define the elements straightaway with `{}`, then **C** figures out the size of the array for you.
+
+### Size of an Array 
+
+We can use `sizeof()` on arrays, and it gives us the size taken up by the entire array. Since an array contains elements of the same type, we can use this to determine the number of elements in a given array by doing `sizeof(array)/sizeof(array[0])`. Can you explain why? 
+
+We will cover arrays more deeply next week when we explore pointers.
+
+### <a name="ArrayExercises"> Array Exercises </a>
+
+1) Given the array:
+```c
+int[] numbers = {4, 5, 3, 2, 9, 17, 1, 4};
+```
+
+Can you calculate the average for this array (using a for loop)?
+
+2) Given the yearAverages array in the Arrays section, can you print all of the grades equal to or above a 2:1 (`60`)?
+
+3) Declare an array but don't initialise the values. Print them; what do you get? 
+
+4) Read the solution for exercise 3. 
 
 ## Next Session…
 
-We’ll be covering arguably the most important and famous topic in C: pointers. 
+Well done on making it through Session 1 alive! 
+
+Next session, we’ll be covering arguably the most important and famous topic in C: pointers. 
+We'll start with how to make our code a little more organised and powerful (now that we know some more advanced concepts) with functions. 
+
+Hope to see you there! 
 
 ## Acknowledgements
 
