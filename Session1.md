@@ -107,6 +107,8 @@ Use `gcc` to compile **C** code. As an example:
 
 4) Run the command `gcc exampleToCompile.c -o exampleProgram`
 
+*Don't worry if it gives you a warning about 'int'; this is something we'll discuss in Session 2!*
+
 This should give you an exe named `exampleProgram.exe` that you can run using:
 ```
 ./exampleProgram
