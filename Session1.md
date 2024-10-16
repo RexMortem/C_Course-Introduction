@@ -26,6 +26,7 @@ Good luck and happy coding!
     - <a href="#IfStatementExercises" style="color: black;"> If Statement Exercises </a>
 - <a href="#Floats" style="color: black;"> Floating-Point Types (Decimals) </a> 
     - <a href="#TypeCasts" style="color: black;"> Typecasting </a> 
+    - <a href="#FloatingExercises" style="color: black;"> Floating-Point Exercises </a> 
 - <a href="#ForLoops" style="color: black;"> For Loops </a> 
     - <a href="#ForLoopExercises" style="color: black;"> For Loop Exercises </a> 
 - <a href="#Arrays" style="color: black;"> Arrays </a>
@@ -620,6 +621,26 @@ The second example is converting `3` and `2` to floats first, and then doing the
 ### <a name="FloatingExercises"> Floating-Point Exercises </a>
 
 1) We've got new types! You know what that means; we've got to check the sizes of them. Write a program to determine the sizes of these new types. 
+
+2) You may have noticed that when you output floats, it outputs to a *lot* of decimal places:
+```c
+float a = 11.0;
+printf("%f\n", a); // 11.000000
+```
+
+Sometimes, we only want to output numbers to a certain number of decimal places (dp). We can do this by writing `.n` where `n` is the number of dp; we write it between **%** and rest of the format specifier (in this case, **f**):
+
+```c
+printf("%.0f\n", a); // 11
+printf("%.1f\n", a); // 11.0
+```
+
+Output the sum, product, and difference to **2 dp** of the floats **x, y**:
+
+```c
+float x = 3.14159;
+float y = 2.71828;
+```
 
 ## <a name="ForLoops"> For loops </a>
 
