@@ -768,6 +768,20 @@ We can use `sizeof()` on arrays, and it gives us the size taken up by the entire
 
 We will cover arrays more deeply next week when we explore pointers.
 
+### Bound-Checking 
+
+As mentioned, **C** does not hold your hand and has minimal guard rails so it does not check if you're trying to index the array **out of bounds**. For example:
+```c 
+int primes[] = {2, 3, 5, 7, 11}; // 5 elements 
+
+printf("%d\n", primes[8]); // this is allowed! 
+```
+*Printing the 9th element despite there only being 5 elements in the array* 
+
+**C** allows this, but this will result in **undefined behaviour**. As mentioned in the solution to Integer Exercise 1, undefined behaviour is unpredictable and not to be trusted; it is **undefined** because the **C** standard does not define what happens when it occurs. The standard does not define what happens when you index an array out of bounds. 
+
+What will usually happens is that some random value will be printed because **C** will fetch a value from memory (in the example, where the 9th element actually would be stored if the array had it) but it won't be from the array. In the worst case, the whole program will crash because we don't have permission to access that memory (or it doesn't exist!) This is a **segmentation fault**. 
+
 ### <a name="ArrayExercises"> Array Exercises </a>
 
 1) Given the array:
@@ -782,6 +796,12 @@ Can you calculate the average for this array (using a for loop)?
 3) Declare an array but don't initialise the values. Print them; what do you get? 
 
 4) Read the solution for exercise 3. 
+
+5) (Similar to exercise 3). Use a for loop to print a large number of values from the following array (where the values aren't actually in the array), to attempt to cause a segmentation fault: 
+
+```c
+int arr[] = {1,2};
+```
 
 ## Next Session…
 
