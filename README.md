@@ -28,4 +28,9 @@ git clone https://github.com/RexMortem/C_Course-Introduction
 
 ## Contact Us 
 
-If there are any problems with the course or suggestions (especially with improving how digestible the content is), then please contact me on discord at **rexmortem60**.  
+If there are any problems with the course or suggestions (especially with improving how digestible the content is), then please contact the society on **discord** (can be found on [their site](https://uwcs.co.uk/)), or contact me on **discord** at `RexMortem60`. 
+
+## Acknowledgements 
+
+Originally made by Edward Denton, as Academic Officer for UWCS. 
+Thanks to Alia Meek (President) for proof-reading Session 1. 
